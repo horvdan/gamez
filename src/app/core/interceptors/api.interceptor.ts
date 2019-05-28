@@ -14,6 +14,7 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    // don't do that in production
     const apiReq = req.clone({
       url: req.url.replace(/^\/api/, 'https://staging-frontapi.cherrytech.com')
     });

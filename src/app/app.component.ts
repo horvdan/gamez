@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { CategoryService } from './core/services/category.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'gamez';
+export class AppComponent implements OnInit {
+  categories = [];
+
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit() {
+    this.categoryService.getCategories().subscribe(c => this.categories = c);
+  }
 }

@@ -1,6 +1,10 @@
+import { FetchCategories } from './store/app.actions';
 import { Component, OnInit } from '@angular/core';
 
-import { CategoryService } from './services/category.service';
+import { AppState } from './store/app.state';
+import { AppStateModel } from './store/app.model';
+import { Store, Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +12,11 @@ import { CategoryService } from './services/category.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  categories = {};
+  @Select(AppState) categories$: Observable<AppStateModel>;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    this.categoryService.getCategories().subscribe(c => this.categories = c);
+    this.store.dispatch(new FetchCategories());
   }
 }

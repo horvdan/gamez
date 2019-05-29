@@ -6,7 +6,3 @@ export interface Game {
   enabled: boolean;
   label: string;
 }
-
-export interface Games {
-  [id: string]: Game;
-}

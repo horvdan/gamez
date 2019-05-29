@@ -1,7 +1,7 @@
-import { Games } from './../models/game';
 import { Injectable } from '@angular/core';
 
 import { Category } from './../models/category';
+import { Games } from '../store/app.model';
 
 @Injectable({
   providedIn: 'root'

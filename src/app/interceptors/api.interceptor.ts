@@ -5,8 +5,9 @@ import {
   HttpHandler,
   HttpRequest
 } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
+
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
@@ -14,9 +15,8 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // don't do that in production
     const apiReq = req.clone({
-      url: req.url.replace(/^\/api/, 'https://staging-frontapi.cherrytech.com')
+      url: req.url.replace(/^\/api/, environment.apiUrl)
     });
 
     return next.handle(apiReq);

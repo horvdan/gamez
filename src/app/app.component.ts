@@ -1,5 +1,6 @@
-import { CategoryService } from './core/services/category.service';
 import { Component, OnInit } from '@angular/core';
+
+import { CategoryService } from './services/category.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  categories = [];
+  categories = {};
 
   constructor(private categoryService: CategoryService) {}
 

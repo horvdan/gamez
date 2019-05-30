@@ -13,3 +13,9 @@ export class SelectCategory {
 
   constructor(public readonly slug: string) {}
 }
+
+export class SearchGames {
+  public static type = "SearchGames";
+
+  constructor(public readonly searchTerm: string) {}
+}

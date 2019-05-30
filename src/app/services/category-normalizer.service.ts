@@ -28,10 +28,14 @@ export class CategoryNormalizerService {
     return {
       name: category.name,
       slug: category.slug,
-      games: category._embedded.games.map(game =>
-        this.mapGames(game, gameCache)
-      )
+      games: category._embedded.games
+        .filter(this.filterInactiveGames)
+        .map(game => this.mapGames(game, gameCache))
     };
+  }
+
+  private filterInactiveGames(game) {
+    return game.enabled;
   }
 
   private mapGames = (game, gameCache) => {

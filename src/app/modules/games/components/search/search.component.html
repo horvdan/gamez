@@ -1,0 +1,4 @@
+<div class="search bg-primary" [ngClass]="{'expanded': isExpanded}">
+  <i class="fas" [ngClass]="icon" (click)="toggleExpanded()"></i>
+  <input type="text" #search [formControl]="searchText" placeholder="Search games..."/>
+</div>

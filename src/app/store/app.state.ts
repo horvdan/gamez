@@ -5,7 +5,7 @@ import { map, tap } from "rxjs/operators";
 import { AppStateModel } from './app.model';
 import { CategoryNormalizerService } from "../services/category-normalizer.service";
 import { CategoryService } from "../services/category.service";
-import { FetchCategories, SelectCategory } from './app.actions';
+import { FetchCategories, SelectCategory, SearchGames } from './app.actions';
 
 // Should've used multiple state slices instead, but I guess no time for that
 @State<AppStateModel>({
@@ -13,7 +13,8 @@ import { FetchCategories, SelectCategory } from './app.actions';
   defaults: {
     categories: [],
     games: {},
-    selectedCategory: ''
+    selectedCategory: '',
+    searchTerm: ''
   }
 })
 export class AppState {
@@ -24,11 +25,19 @@ export class AppState {
 
   @Selector()
   static activeCategories(state: AppStateModel) {
-    return state.categories.filter(cat => cat.games.length > 0);
+    return state.categories.filter(cat => cat.games.find(
+      id => state.games[id].enabled
+    ));
   }
 
   @Selector()
-  static gamesInSelectedCategory(state: AppStateModel) {
+  static visibleGames(state: AppStateModel) {
+    if (state.searchTerm) {
+      return Object.values(state.games).filter(game => (
+        game.name.toLocaleLowerCase().indexOf(state.searchTerm) > -1)
+      );
+    }
+
     const selectedCategory = state.categories.find(cat => cat.slug === state.selectedCategory);
 
     if (!selectedCategory) {
@@ -63,4 +72,12 @@ export class AppState {
       selectedCategory: action.slug
     });
   }
+
+  @Action(SearchGames, { cancelUncompleted: true })
+  public searchGames(ctx: StateContext<AppStateModel>, action: SearchGames) {
+    ctx.patchState({
+      searchTerm: action.searchTerm
+    });
+  }
+
 }

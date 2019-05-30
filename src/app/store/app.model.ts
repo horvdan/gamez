@@ -5,6 +5,7 @@ export interface AppStateModel {
   categories: Category[];
   games: Games;
   selectedCategory: string;
+  searchTerm: string;
 }
 
 export interface Games {

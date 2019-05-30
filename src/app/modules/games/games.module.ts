@@ -9,6 +9,7 @@ import { PlayGameComponent } from "./pages/play-game/play-game.component";
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { SearchComponent } from './components/search/search.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchComponent } from './components/search/search.component';
     PlayGameComponent,
     GameListComponent,
     GameCardComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule]
 })

@@ -62,7 +62,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gamez:build"
+            "browserTarget": "gamez:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {

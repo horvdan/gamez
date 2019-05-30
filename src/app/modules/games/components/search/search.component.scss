@@ -1,3 +1,5 @@
+@import '../../../../../styles/responsive';
+
 :host {
   display: contents;
 }
@@ -7,7 +9,8 @@
   cursor: pointer;
   height: 40px;
   margin-right: 10px;
-  position: relative;
+  position: absolute;
+  right: 0px;
   width: 40px;
 
   i {
@@ -21,7 +24,7 @@
   }
 
   input {
-    visibility: hidden;
+    display: none;
   }
 
   &.expanded {
@@ -43,10 +46,10 @@
       background: transparent;
       border: none;
       color: white;
+      display: initial;
       max-width: 600px;
       outline: none;
       text-align: center;
-      visibility: visible;
 
       &::placeholder {
         color: white;
@@ -67,7 +70,7 @@
     width: 40px;
   }
   100% {
-    width: 100%;
+    width: 100vw;
   }
 
 }

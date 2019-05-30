@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { SearchGames } from 'src/app/store/app.actions';
 import { Store } from '@ngxs/store';
+
+import { SearchGames } from '../../../../store/app.actions';
 
 @Component({
   selector: 'app-search',

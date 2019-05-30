@@ -1,0 +1,28 @@
+@import '../../../../../styles/responsive';
+
+.category-selector.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-left: 90px;
+  width: calc(100vw - 65px);
+
+  @include breakpoint(sm) {
+    padding-left: 0px;
+    overflow-x: hidden;
+  }
+
+  .nav-item.nav-link {
+    flex: 1 0 0;
+    max-width: 300px;
+    text-align: center;
+    white-space: nowrap;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+  }
+}

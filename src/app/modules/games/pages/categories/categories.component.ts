@@ -9,8 +9,8 @@ import {
   SelectCategory
 } from "./../../../../store/app.actions";
 import { Category } from "./../../../../models/category";
-import { AppState } from "src/app/store/app.state";
-import { Game } from "src/app/models/game";
+import { AppState } from "../../../../store/app.state";
+import { Game } from "../../../../models/game";
 
 @Component({
   selector: "app-categories",
@@ -22,10 +22,16 @@ export class CategoriesComponent implements OnInit {
   @Select(AppState.visibleGames) games$: Observable<Game[]>;
   @Select(state => state.app.selectedCategory) selectedCategory$: Observable<string>;
 
+  isLoading = false;
+
   constructor(private store: Store, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.store.dispatch(new FetchCategories());
+    this.isLoading = true;
+    this.store.dispatch(new FetchCategories())
+      .subscribe(() => {
+        this.isLoading = false;
+      });
 
     this.subscribeToRouteParamChanges();
     this.handleNoParamInRoute();

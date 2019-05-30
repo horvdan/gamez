@@ -1,6 +1,6 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { of } from 'rxjs';
-import { map, tap } from "rxjs/operators";
+import { map, tap, catchError } from "rxjs/operators";
 
 import { AppStateModel } from './app.model';
 import { CategoryNormalizerService } from "../services/category-normalizer.service";
@@ -60,7 +60,7 @@ export class AppState {
       tap(normalizedResult => {
         ctx.patchState({
           categories: normalizedResult.categories,
-          games: normalizedResult.games
+          games: normalizedResult.games,
         });
       })
     );

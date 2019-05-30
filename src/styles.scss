@@ -1,7 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'bootstrap_overrides';
+@import './styles/bootstrap_overrides';
+@import './styles/variables';
+@import './styles/responsive';
 @import '~bootstrap/scss/bootstrap';
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  min-height: 100vh;
+}

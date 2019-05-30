@@ -1,12 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-layout",
   template: `
-    <app-header></app-header>
-      <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div class="app-container">
+      <app-header></app-header>
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      <app-footer></app-footer>
+    </div>
   `,
-  styles: []
+  styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {}

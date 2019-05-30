@@ -1,5 +1,9 @@
-<div class="col-2">
-  <a [routerLink]="[ '/play', game.id ]">
+<div class="game-card">
+  <a [routerLink]="['/play', game.id]">
+    <div class="play-now">
+      <span>Play</span>
+      <i class="fas fa-play"></i>
+    </div>
     <img [src]="game.thumbnail" style="filter: url(#gray-green)" />
   </a>
 </div>

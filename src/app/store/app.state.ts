@@ -1,15 +1,15 @@
-import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
-import { map, tap, catchError } from "rxjs/operators";
+import { map, tap } from 'rxjs/operators';
 
 import { AppStateModel } from './app.model';
-import { CategoryNormalizerService } from "../services/category-normalizer.service";
-import { CategoryService } from "../services/category.service";
+import { CategoryNormalizerService } from '../services/category-normalizer.service';
+import { CategoryService } from '../services/category.service';
 import { FetchCategories, SelectCategory, SearchGames } from './app.actions';
 
 // Should've used multiple state slices instead, but I guess no time for that
 @State<AppStateModel>({
-  name: "app",
+  name: 'app',
   defaults: {
     categories: [],
     games: {},

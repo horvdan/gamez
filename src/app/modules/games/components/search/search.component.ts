@@ -1,9 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Store } from '@ngxs/store';
-
-import { SearchGames } from '../../../../store/app.actions';
 
 @Component({
   selector: 'app-search',
@@ -12,6 +9,7 @@ import { SearchGames } from '../../../../store/app.actions';
 })
 export class SearchComponent implements OnInit {
   @ViewChild('search') searchElement: ElementRef;
+  @Output() searchChanged = new EventEmitter<string>();
 
   isExpanded = false;
   searchText: AbstractControl;
@@ -20,14 +18,14 @@ export class SearchComponent implements OnInit {
     return this.isExpanded ? 'fa-times' : 'fa-search';
   }
 
-  constructor(private store: Store) {}
-
   ngOnInit() {
     this.searchText = new FormControl('');
     this.searchText.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged()
-    ).subscribe(value => this.store.dispatch(new SearchGames(value)));
+    ).subscribe(value => {
+      this.searchChanged.emit(value);
+    });
   }
 
   toggleExpanded() {

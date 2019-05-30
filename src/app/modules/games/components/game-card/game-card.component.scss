@@ -1,0 +1,42 @@
+@import '../../../../../styles/variables';
+
+.game-card {
+  position: relative;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+
+  .play-now {
+    background-color: $light-green;
+    border-radius: 1.25em;
+    color: white;
+    cursor: pointer;
+    left: 50%;
+    opacity: 0;
+    padding: 0.25em 0.75em;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-out;
+    z-index: 100;
+
+    span {
+      margin-right: 0.5em;
+    }
+
+    i {
+      font-size: 12px;
+    }
+  }
+
+  &:hover {
+    img {
+      filter: none !important;
+    }
+
+    .play-now {
+      opacity: 1;
+    }
+  }
+}

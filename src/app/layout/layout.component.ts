@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-layout",
+  selector: 'app-layout',
   template: `
     <div class="app-container">
       <app-header></app-header>

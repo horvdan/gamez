@@ -1,21 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Select, Store } from "@ngxs/store";
-import { Observable } from "rxjs";
-import { filter, take, withLatestFrom } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { filter, take, withLatestFrom } from 'rxjs/operators';
 
 import {
   FetchCategories,
-  SelectCategory
-} from "./../../../../store/app.actions";
-import { Category } from "./../../../../models/category";
-import { AppState } from "../../../../store/app.state";
-import { Game } from "../../../../models/game";
+  SelectCategory,
+  SearchGames
+} from './../../../../store/app.actions';
+import { Category } from './../../../../models/category';
+import { AppState } from '../../../../store/app.state';
+import { Game } from '../../../../models/game';
 
 @Component({
-  selector: "app-categories",
-  templateUrl: "./categories.component.html",
-  styleUrls: ["./categories.component.scss"]
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
   @Select(AppState.activeCategories) categories$: Observable<Category[]>;
@@ -37,6 +38,10 @@ export class CategoriesComponent implements OnInit {
     this.handleNoParamInRoute();
   }
 
+  searchGames(searchTerm: string) {
+    this.store.dispatch(new SearchGames(searchTerm));
+  }
+
   private handleNoParamInRoute() {
     this.categories$
       .pipe(
@@ -45,7 +50,7 @@ export class CategoriesComponent implements OnInit {
         withLatestFrom(this.route.paramMap)
       )
       .subscribe(([categories, params]) => {
-        if (!params.get("slug")) {
+        if (!params.get('slug')) {
           this.router.navigateByUrl(`/games/${categories[0].slug}`);
         }
       });
@@ -53,7 +58,7 @@ export class CategoriesComponent implements OnInit {
 
   private subscribeToRouteParamChanges() {
     this.route.paramMap.subscribe(params => {
-      const category = params.get("slug");
+      const category = params.get('slug');
       if (category) {
         this.store.dispatch(new SelectCategory(category));
       }

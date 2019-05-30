@@ -2,6 +2,7 @@
   <app-category-selector
     [categories]="categories$ | async"
     [selectedCategorySlug]="selectedCategory$ | async"
+    (searchChanged)="searchGames($event)"
   ></app-category-selector>
   <div class="container">
     <app-game-list [games]="games$ | async"></app-game-list>

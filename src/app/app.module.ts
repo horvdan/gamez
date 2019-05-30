@@ -9,6 +9,8 @@ import { ParamsInterceptor } from './interceptors/params.interceptor';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { StoreModule } from './store/store.module';
+import { GamesModule } from './modules/games/games.module';
+import { LayoutComponent } from './layout/layout.component';
 
 const MY_INTERCEPTORS = [
   { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
@@ -19,12 +21,14 @@ const MY_INTERCEPTORS = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GamesModule,
     StoreModule
   ],
   providers: [

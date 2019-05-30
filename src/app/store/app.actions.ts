@@ -7,3 +7,9 @@ export class FetchGameById {
 
   constructor(public readonly gameId: string) {}
 }
+
+export class SelectCategory {
+  public static type = "SelectCategory";
+
+  constructor(public readonly slug: string) {}
+}

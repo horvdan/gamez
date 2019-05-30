@@ -26,7 +26,7 @@ const game1 = {
     bonus: false,
     free_spins: false
   },
-  enabled: true,
+  enabled: false,
   label: 'Jackpot',
   cols: 1,
   rows: 1,
@@ -145,7 +145,7 @@ const game3 = {
     bonus: false,
     free_spins: false
   },
-  enabled: false,
+  enabled: true,
   label: '',
   cols: 1,
   rows: 1,
@@ -206,7 +206,7 @@ const API_RESPONSE = {
 };
 
 describe('CategoryNormalizerService', () => {
-  it('should be normalize categories API response correctly', () => {
+  it('should be normalize and filter API response correctly', () => {
     const service = new CategoryNormalizerService();
 
     const expected = {
@@ -214,7 +214,7 @@ describe('CategoryNormalizerService', () => {
         {
           name: 'Popular Games',
           slug: 'popular-games',
-          games: [game1.id, game2.id]
+          games: [game2.id]
         },
         {
           name: 'Table Games',
@@ -223,7 +223,6 @@ describe('CategoryNormalizerService', () => {
         },
       ],
       games: {
-        [game1.id]: game1,
         [game2.id]: game2,
         [game3.id]: game3
       }

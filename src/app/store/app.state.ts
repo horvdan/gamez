@@ -1,11 +1,12 @@
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext, createSelector } from '@ngxs/store';
 import { of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { AppStateModel } from './app.model';
 import { CategoryNormalizerService } from '../services/category-normalizer.service';
 import { CategoryService } from '../services/category.service';
-import { FetchCategories, SelectCategory, SearchGames } from './app.actions';
+import { FetchCategories, SelectCategory, SearchGames, FetchGameById } from './app.actions';
+import { GameService } from '../services/game.service';
 
 // Should've used multiple state slices instead, but I guess no time for that
 @State<AppStateModel>({
@@ -20,7 +21,8 @@ import { FetchCategories, SelectCategory, SearchGames } from './app.actions';
 export class AppState {
   constructor(
     private categoryService: CategoryService,
-    private categoryNormalizer: CategoryNormalizerService
+    private categoryNormalizer: CategoryNormalizerService,
+    private gameService: GameService
   ) {}
 
   @Selector()
@@ -47,6 +49,12 @@ export class AppState {
     return selectedCategory.games.map(id => state.games[id]);
   }
 
+  static gameById(id: string) {
+    return createSelector([AppState], (state: AppStateModel) => {
+      return state.games[id];
+    });
+  }
+
   @Action(FetchCategories, { cancelUncompleted: true })
   public fetchCategories(ctx: StateContext<AppStateModel>) {
     const state = ctx.getState();
@@ -61,6 +69,26 @@ export class AppState {
         ctx.patchState({
           categories: normalizedResult.categories,
           games: normalizedResult.games,
+        });
+      })
+    );
+  }
+
+  @Action(FetchGameById)
+  public fetchGameById(ctx: StateContext<AppStateModel>, action: FetchGameById) {
+    const state = ctx.getState();
+
+    if (state.games[action.gameId] && state.games[action.gameId].vendor_properties) {
+      return of(state.games[action.gameId]);
+    }
+
+    return this.gameService.getGameById(action.gameId).pipe(
+      tap(game => {
+        ctx.patchState({
+          games: {
+            ...state.games,
+            [action.gameId]: game
+          }
         });
       })
     );

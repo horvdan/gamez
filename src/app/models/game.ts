@@ -5,4 +5,5 @@ export interface Game {
   thumbnail: string;
   enabled: boolean;
   label: string;
+  vendor_properties: object;
 }

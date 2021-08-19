@@ -16,7 +16,7 @@ export class ParamsInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const reqWithParams = req.clone({
       setParams: {
-        brand: 'cherrycasino.desktop',
+        brand: 'brand',
         locale: 'en'
       }
     });

@@ -4,14 +4,14 @@ const game1 = {
   id: 'yggdrasil-joker-millions',
   slug: 'joker-millions',
   background:
-    '//staging-static.cherrycasino.com/media/game/GenericCasinoNEW.jpg?u=1546507715',
+    '//url/media/game/GenericCasinoNEW.jpg?u=1546507715',
   description: '',
   game_stakes: null,
   height: '360',
   name: 'Joker Millions',
   width: '640',
   thumbnail:
-    '//staging-static.cherrycasino.com/media/game/desktop/lobby/150x140-joker-millions.jpg?u=1546507715',
+    '//url/media/game/desktop/lobby/150x140-joker-millions.jpg?u=1546507715',
   url: null,
   created_at: {
     date: '2015-04-13T11:05:48+00:00'
@@ -35,27 +35,27 @@ const game1 = {
   volatility: 0,
   rating: 0,
   backgrounds: [
-    '//staging-static.cherrycasino.com/media/game/GenericCasinoNEW.jpg?u=1546507715'
+    '//url/media/game/GenericCasinoNEW.jpg?u=1546507715'
   ],
   screenshots: [],
   thumbnails: {
     '280x280':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7312/yggdrasil-7312-T280x280.jpg?u=1546507715',
+      '//url/media/games/yggdrasil/7312/yggdrasil-7312-T280x280.jpg?u=1546507715',
     '280x600':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7312/yggdrasil-7312-T280x600.jpg?u=1546507715',
+      '//url/media/games/yggdrasil/7312/yggdrasil-7312-T280x600.jpg?u=1546507715',
     '500x375':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7312/yggdrasil-7312-T500x375.jpg?u=1546507715',
+      '//url/media/games/yggdrasil/7312/yggdrasil-7312-T500x375.jpg?u=1546507715',
     '600x280':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7312/yggdrasil-7312-T600x280.jpg?u=1546507715',
+      '//url/media/games/yggdrasil/7312/yggdrasil-7312-T600x280.jpg?u=1546507715',
     legacy:
-      '//staging-static.cherrycasino.com/media/game/desktop/lobby/150x140-joker-millions.jpg?u=1546507715'
+      '//url/media/game/desktop/lobby/150x140-joker-millions.jpg?u=1546507715'
   },
   jurisdiction: 'mga',
   login_required: false,
   _links: {
     self: {
       href:
-        'https://staging-frontapi.cherrytech.com/games/yggdrasil-joker-millions'
+        'https://url/games/yggdrasil-joker-millions'
     }
   }
 };
@@ -64,14 +64,14 @@ const game2 = {
   id: 'yggdrasil-incinerator',
   slug: 'incinerator',
   background:
-    '//staging-static.cherrycasino.com/media/game/GenericCasinoNEW.jpg?u=1455619541',
+    '//url/media/game/GenericCasinoNEW.jpg?u=1455619541',
   description: '',
   game_stakes: null,
   height: '360',
   name: 'Incinerator',
   width: '640',
   thumbnail:
-    '//staging-static.cherrycasino.com/media/game/150x140-incinerator-new.jpg?u=1455619541',
+    '//url/media/game/150x140-incinerator-new.jpg?u=1455619541',
   url: null,
   created_at: {
     date: '2016-01-14T10:30:50+00:00'
@@ -95,26 +95,26 @@ const game2 = {
   volatility: 1,
   rating: 1,
   backgrounds: [
-    '//staging-static.cherrycasino.com/media/games/yggdrasil/7320/yggdrasil-7320-B470x920L.jpg?u=1455619541',
-    '//staging-static.cherrycasino.com/media/games/yggdrasil/7320/yggdrasil-7320-B470x920R.jpg?u=1455619541'
+    '//url/media/games/yggdrasil/7320/yggdrasil-7320-B470x920L.jpg?u=1455619541',
+    '//url/media/games/yggdrasil/7320/yggdrasil-7320-B470x920R.jpg?u=1455619541'
   ],
   screenshots: [],
   thumbnails: {
     '280x280':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7320/yggdrasil-7320-T280x280.jpg?u=1455619541',
+      '//url/media/games/yggdrasil/7320/yggdrasil-7320-T280x280.jpg?u=1455619541',
     '280x600':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7320/yggdrasil-7320-T280x600.jpg?u=1455619541',
+      '//url/media/games/yggdrasil/7320/yggdrasil-7320-T280x600.jpg?u=1455619541',
     '600x280':
-      '//staging-static.cherrycasino.com/media/games/yggdrasil/7320/yggdrasil-7320-T600x280.jpg?u=1455619541',
+      '//url/media/games/yggdrasil/7320/yggdrasil-7320-T600x280.jpg?u=1455619541',
     legacy:
-      '//staging-static.cherrycasino.com/media/game/150x140-incinerator-new.jpg?u=1455619541'
+      '//url/media/game/150x140-incinerator-new.jpg?u=1455619541'
   },
   jurisdiction: 'mga',
   login_required: false,
   _links: {
     self: {
       href:
-        'https://staging-frontapi.cherrytech.com/games/yggdrasil-incinerator'
+        'https://url/games/yggdrasil-incinerator'
     }
   }
 };
@@ -123,14 +123,14 @@ const game3 = {
   id: 'amaya-live-blackjack-amaya-old',
   slug: 'live-blackjack-amaya-old',
   background:
-    '//staging-static.cherrycasino.com/media/game/GenericCasinoNEW.jpg?u=1501835644',
+    '//url/media/game/GenericCasinoNEW.jpg?u=1501835644',
   description: '',
   game_stakes: null,
   height: '480',
   name: 'Live Blackjack',
   width: '800',
   thumbnail:
-    '//staging-static.cherrycasino.com/media/game/desktop/lobby/live-blackjack-150x140.jpg?u=1501835644',
+    '//url/media/game/desktop/lobby/live-blackjack-150x140.jpg?u=1501835644',
   url: null,
   created_at: {
     date: '2015-07-29T15:52:31+00:00'
@@ -154,25 +154,25 @@ const game3 = {
   volatility: 0,
   rating: 0,
   backgrounds: [
-    '//staging-static.cherrycasino.com/media/game/GenericCasinoNEW.jpg?u=1501835644'
+    '//url/media/game/GenericCasinoNEW.jpg?u=1501835644'
   ],
   screenshots: [],
   thumbnails: {
     '280x280':
-      '//staging-static.cherrycasino.com/media/games/amaya/20502/amaya-20502-T280x280.jpg?u=1501835644',
+      '//url/media/games/amaya/20502/amaya-20502-T280x280.jpg?u=1501835644',
     '280x600':
-      '//staging-static.cherrycasino.com/media/games/amaya/20502/amaya-20502-T280x600.jpg?u=1501835644',
+      '//url/media/games/amaya/20502/amaya-20502-T280x600.jpg?u=1501835644',
     '600x280':
-      '//staging-static.cherrycasino.com/media/games/amaya/20502/amaya-20502-T600x280.jpg?u=1501835644',
+      '//url/media/games/amaya/20502/amaya-20502-T600x280.jpg?u=1501835644',
     legacy:
-      '//staging-static.cherrycasino.com/media/game/desktop/lobby/live-blackjack-150x140.jpg?u=1501835644'
+      '//url/media/game/desktop/lobby/live-blackjack-150x140.jpg?u=1501835644'
   },
   jurisdiction: 'mga',
   login_required: true,
   _links: {
     self: {
       href:
-        'https://staging-frontapi.cherrytech.com/games/amaya-live-blackjack-amaya-old'
+        'https://url/games/amaya-live-blackjack-amaya-old'
     }
   }
 };
@@ -180,7 +180,7 @@ const game3 = {
 const API_RESPONSE = {
   _links: {
     self: {
-      href: 'https://staging-frontapi.cherrytech.com/game-categories'
+      href: 'https://url/game-categories'
     }
   },
   _embedded: {

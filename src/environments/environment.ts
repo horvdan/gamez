@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://staging-frontapi.cherrytech.com'
+  apiUrl: '*api_url*'
 };
 
 /*
